@@ -19,6 +19,27 @@ class World(Widget):
     with self.canvas:
       Color(250., 0, 0)
       self.robot = Rectangle(pos = (0,0) , size = (50,50))
+      
+      Color(0, 250., 0)
+      for i in range (0,1) :
+      	for j in range (2,10) :
+      	  self.barrier = Rectangle(pos = (j*50,i*50) , size = (50,50))
+      	  self.position[i][j] = 1
+      	  
+      for i in range (2,10) :
+      	for j in range (0,1) :
+         self.barrier = Rectangle(pos = (j*50,i*50) , size = (50,50))
+         self.position[i][j] = 1
+         
+      for i in range (3,5) :
+      	for j in range (3,10,2) :
+      	  self.barrier = Rectangle(pos = (j*50,i*50) , size = (50,50))  
+      	  self.position[i][j] = 1
+      	  
+      for i in range (3,10,2) :
+      	for j in range (3,5) :
+      	  self.barrier = Rectangle(pos = (j*50,i*50) , size = (50,50))	
+      	  self.position[i][j] = 1
 
   
   def _on_keyboard_closed(self):
