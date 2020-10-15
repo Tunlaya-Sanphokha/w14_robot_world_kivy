@@ -53,18 +53,44 @@ class World(Widget):
     column = self.robot.pos[0]
 
     if text == "w":
-      row += 50
+      if row + 50 >=500 :
+         pass
+      elif self.position[int(row+50)//50][int(column)//50] == 1:
+         pass
+      else :
+         row += 50
+         
     if text == "s":
-      row -= 50
+      if row - 50 < 0 :
+         pass
+      elif self.position[int(row-50)//50][int(column)//50] == 1:
+         pass
+      else :
+         row -= 50
+         
     if text == "a":
-      column -= 50
+      if column - 50 < 0 :
+         pass
+      elif self.position[int(row)//50][int(column-50)//50] == 1:
+         pass
+      else :
+         column -= 50
+         
     if text == "d":
-      column += 50
-
+      if column + 50 >=500 :
+         pass
+      elif self.position[int(row)//50][int(column+50)//50] == 1:
+         pass
+      else :
+         column += 50
+         
     self.robot.pos = (column,row)
     
     print(self.position)
-
+    print(int(row)//50,int(column)//50) 
+    print(self.position[int(row)//50][int(column)//50])
+    
+    
 class RobotWorld(App):
   def build(self):
     Window.size = (500,500)
@@ -72,4 +98,5 @@ class RobotWorld(App):
 
 if __name__ == "__main__":
   RobotWorld().run()
+
 
