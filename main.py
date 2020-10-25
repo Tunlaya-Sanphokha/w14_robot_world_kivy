@@ -1,7 +1,16 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
+from kivy.graphics import Color
+from kivy.graphics import Rectangle
 from kivy.graphics import *
 from kivy.core.window import Window
+
+class Target(Widget):
+   
+   def draw(self):
+       Color(0, 0, 250.)
+       self.target =  Rectangle(pos = (450, 450), size = (50,50))
+       self.position[9][9] = 2
 
 class World(Widget):
 
@@ -39,10 +48,14 @@ class World(Widget):
       	for j in range (3,5) :
       	  self.barrier = Rectangle(pos = (j*50,i*50) , size = (50,50))	
       	  self.position[i][j] = 1
-      	   
+
       Color(0, 0, 250.)
       self.target = Rectangle(pos = (450,450) , size = (50,50))
-      self.position[9][9] = 2
+      self.position[9][9] = 2 
+      
+
+    	   
+     
   
   def _on_keyboard_closed(self):
     self._keyboard.unbind(on_key_down = self._on_key_down)
@@ -98,5 +111,6 @@ class RobotWorld(App):
 
 if __name__ == "__main__":
   RobotWorld().run()
+
 
 
