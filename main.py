@@ -6,6 +6,8 @@ from kivy.graphics import *
 from kivy.core.window import Window
 
 class Target(Widget):
+   def __init__(self, size):
+       self.size = (size, size)
    
    def draw(self):
        Color(0, 0, 250.)
